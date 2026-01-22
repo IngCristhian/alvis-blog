@@ -1,0 +1,75 @@
+---
+title: "Introducción a Kubernetes: Orquestación de Contenedores"
+slug: "introduccion-kubernetes"
+date: "2024-01-15"
+category: "DevOps"
+tags: ["kubernetes", "docker", "contenedores", "orquestación"]
+excerpt: "Aprende los conceptos fundamentales de Kubernetes y cómo puede ayudarte a gestionar tus aplicaciones en contenedores de forma eficiente."
+author: "Cristian Alvis"
+featured: true
+draft: false
+---
+
+## ¿Qué es Kubernetes?
+
+Kubernetes (también conocido como K8s) es una plataforma de código abierto para automatizar el despliegue, escalado y gestión de aplicaciones en contenedores.
+
+## Conceptos Fundamentales
+
+### Pods
+
+Un Pod es la unidad más pequeña en Kubernetes. Representa uno o más contenedores que comparten almacenamiento y red.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mi-aplicacion
+spec:
+  containers:
+  - name: app
+    image: mi-imagen:latest
+    ports:
+    - containerPort: 80
+```
+
+### Deployments
+
+Los Deployments permiten declarar el estado deseado de tus aplicaciones y Kubernetes se encarga de mantenerlo.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+    spec:
+      containers:
+      - name: app
+        image: mi-imagen:latest
+```
+
+### Services
+
+Los Services exponen tus aplicaciones y permiten la comunicación entre pods.
+
+## Beneficios de Kubernetes
+
+1. **Escalabilidad automática** - Escala tus aplicaciones según la demanda
+2. **Self-healing** - Reinicia contenedores fallidos automáticamente
+3. **Despliegues sin downtime** - Rolling updates y rollbacks fáciles
+4. **Gestión de configuración** - ConfigMaps y Secrets
+
+## Próximos Pasos
+
+En el siguiente artículo exploraremos cómo configurar un clúster de Kubernetes desde cero.
+
+> La orquestación de contenedores es el futuro del despliegue de aplicaciones.

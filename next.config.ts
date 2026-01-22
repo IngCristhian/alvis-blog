@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "standalone",
+  outputFileTracingIncludes: {
+    "/blog": ["./content/**/*"],
+    "/blog/[slug]": ["./content/**/*"],
+    "/feed.xml": ["./content/**/*"],
+  },
 };
 
 export default nextConfig;

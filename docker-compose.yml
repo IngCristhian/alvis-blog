@@ -1,0 +1,22 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Variables de build (necesarias para Next.js)
+        - SITE_URL=${SITE_URL:-http://localhost:3000}
+        - NEXT_PUBLIC_GISCUS_REPO=${NEXT_PUBLIC_GISCUS_REPO:-}
+        - NEXT_PUBLIC_GISCUS_REPO_ID=${NEXT_PUBLIC_GISCUS_REPO_ID:-}
+        - NEXT_PUBLIC_GISCUS_CATEGORY_ID=${NEXT_PUBLIC_GISCUS_CATEGORY_ID:-}
+    container_name: alvis-blog
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - SITE_URL=${SITE_URL:-http://localhost:3000}
+      # Newsletter API (runtime - elige uno)
+      - BUTTONDOWN_API_KEY=${BUTTONDOWN_API_KEY:-}
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
+      - RESEND_AUDIENCE_ID=${RESEND_AUDIENCE_ID:-}
+    restart: always
