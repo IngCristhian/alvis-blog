@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, phone, message } = await request.json();
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
             <h2>Nuevo mensaje desde tu portfolio</h2>
             <p><strong>Nombre:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
+            ${phone ? `<p><strong>Teléfono:</strong> ${phone}</p>` : ''}
             <p><strong>Mensaje:</strong></p>
             <p>${message.replace(/\n/g, '<br>')}</p>
           `,
@@ -45,7 +46,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Fallback: log to console if no API key
-    console.log('Contact form submission (no API configured):', { name, email, message });
+    console.log('Contact form submission (no API configured):', { name, email, phone, message });
     return NextResponse.json({ success: true });
 
   } catch (error) {
