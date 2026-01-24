@@ -361,6 +361,8 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:contacto@cristianalvis.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25"
               >
                 <Mail size={20} />
