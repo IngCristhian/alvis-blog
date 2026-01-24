@@ -2,241 +2,394 @@
 
 import { useLanguage } from "@/app/context/language-context";
 import Navbar from "@/app/components/Navbar";
-import { 
-  BookOpen, Coffee, GraduationCap, Mail, MapPin, User, Linkedin, Github, Briefcase, 
-  Server, Cloud, Code, Terminal, Database, Shield, Container
+import Image from "next/image";
+import {
+  Mail, MapPin, Linkedin, Github, ExternalLink,
+  Cloud, Activity, GitBranch, Code, Download, ChevronRight
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const { t } = useLanguage();
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
+  const skills = {
+    cloud: ["AWS (EKS, CloudFormation)", "Azure DevOps", "Kubernetes", "Docker"],
+    observability: ["Grafana", "Prometheus", "Thanos", "Nagios"],
+    cicd: ["Jenkins", "Terraform", "Ansible", "Git/GitHub"],
+    dev: ["Python", "Bash", "Linux", "SQL", "Kafka Strimzi"],
   };
 
-  const skills = [
-    { name: "Docker & Kubernetes", icon: <Container size={24} className="text-blue-500" />, level: "Advanced" },
-    { name: "AWS & Azure", icon: <Cloud size={24} className="text-orange-500" />, level: "Advanced" },
-    { name: "CI/CD (Jenkins, GitHub Actions)", icon: <Server size={24} className="text-red-500" />, level: "Advanced" },
-    { name: "IaC (Terraform, Ansible)", icon: <Code size={24} className="text-purple-500" />, level: "Intermediate" },
-    { name: "Scripting (Python, Bash)", icon: <Terminal size={24} className="text-yellow-500" />, level: "Advanced" },
-    { name: "Monitoring (Prometheus, Grafana)", icon: <Database size={24} className="text-green-500" />, level: "Intermediate" },
+  const experiences = [
+    { role: "exp_role1", company: "exp_company1", date: "exp_date1", desc: "exp_desc1", current: true },
+    { role: "exp_role2", company: "exp_company2", date: "exp_date2", desc: "exp_desc2", current: false },
+    { role: "exp_role3", company: "exp_company3", date: "exp_date3", desc: "exp_desc3", current: false },
+    { role: "exp_role4", company: "exp_company4", date: "exp_date4", desc: "exp_desc4", current: false },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <Navbar />
 
       {/* Hero Section */}
-      <section id="inicio" className="pt-32 pb-40 flex flex-col items-center text-center px-4 overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-30 dark:opacity-10 pointer-events-none">
-           <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-400 rounded-full blur-[100px]" />
-           <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-400 rounded-full blur-[100px]" />
-        </div>
+      <section id="inicio" className="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-slate-500 dark:text-slate-400 text-lg mb-2 font-mono">
+              {t("hero_greeting")}
+            </p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
+              {t("hero_name")}
+            </h1>
+            <p className="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 font-semibold mb-6">
+              {t("hero_role")}
+            </p>
+            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6 max-w-lg">
+              {t("hero_desc")}
+            </p>
 
-        <motion.div 
-          className="w-40 h-40 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full mb-8 p-1 shadow-xl"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        >
-          <div className="w-full h-full bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center overflow-hidden">
-            <User size={64} className="text-slate-400" />
-          </div>
-        </motion.div>
-        
-        <motion.h1 
-          className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          {t("hero_role")}
-        </motion.h1>
-        
-        <motion.p 
-          className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          {t("hero_desc")}
-        </motion.p>
-        
-        <motion.div 
-          className="flex gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <a href="#contacto" className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1">
-            {t("hero_cta_contact")}
-          </a>
-          <a href="#proyectos" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white px-8 py-4 rounded-full font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all transform hover:-translate-y-1">
-            {t("hero_cta_projects")}
-          </a>
-        </motion.div>
+            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-8">
+              <MapPin size={18} />
+              <span>{t("hero_location")}</span>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#contacto"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25"
+              >
+                {t("hero_cta_contact")}
+                <ChevronRight size={18} />
+              </a>
+              <a
+                href="/cv.pdf"
+                className="inline-flex items-center gap-2 border border-slate-300 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 px-6 py-3 rounded-lg font-medium transition-all"
+              >
+                <Download size={18} />
+                {t("hero_cta_cv")}
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-8">
+              <a
+                href="https://www.linkedin.com/in/cristian-david-alvis-ortiz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={22} />
+              </a>
+              <a
+                href="https://github.com/IngCristhian"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"
+                aria-label="GitHub Personal"
+              >
+                <Github size={22} />
+              </a>
+              <a
+                href="https://github.com/alvisdevops"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"
+                aria-label="GitHub Organization"
+              >
+                <ExternalLink size={22} />
+              </a>
+              <a
+                href="mailto:contacto@cristianalvis.com"
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-red-100 dark:hover:bg-red-900/30 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-all"
+                aria-label="Email"
+              >
+                <Mail size={22} />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <div className="relative">
+              <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-800 shadow-2xl">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Cristian Alvis"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -z-10 top-4 left-4 w-full h-full rounded-2xl bg-blue-600/20 dark:bg-blue-500/10" />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* About Section */}
-      <section id="sobre-mi" className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <motion.div 
-            className="flex items-center gap-4 mb-8"
-            {...fadeInUp}
-          >
-            <User className="text-blue-600" size={32} />
-            <h2 className="text-3xl font-bold">{t("about_title")}</h2>
-          </motion.div>
-          <motion.div 
-            className="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="leading-relaxed mb-6">{t("about_desc1")}</p>
-            <p className="leading-relaxed">{t("about_desc2")}</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="habilidades" className="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div 
-            className="flex items-center gap-4 mb-12 justify-center"
+      <section id="sobre-mi" className="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.h2
+            className="text-3xl font-bold mb-12 flex items-center gap-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Briefcase className="text-blue-600" size={32} />
-            <h2 className="text-3xl font-bold">{t("skills_title")}</h2>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((skill, index) => (
-              <motion.div 
+            <span className="text-blue-600 font-mono text-xl">01.</span>
+            {t("about_title")}
+            <span className="flex-1 h-px bg-slate-200 dark:bg-slate-800 ml-4" />
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              className="md:col-span-2 space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                {t("about_desc1")}
+              </p>
+              <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                {t("about_desc2")}
+              </p>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              className="grid grid-cols-1 gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+                <p className="text-3xl font-bold text-blue-600">{t("about_years")}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm">{t("about_years_label")}</p>
+              </div>
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+                <p className="text-3xl font-bold text-blue-600">{t("about_projects")}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm">{t("about_projects_label")}</p>
+              </div>
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+                <p className="text-3xl font-bold text-blue-600">{t("about_certifications")}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm">{t("about_certifications_label")}</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="habilidades" className="py-24">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.h2
+            className="text-3xl font-bold mb-12 flex items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-blue-600 font-mono text-xl">02.</span>
+            {t("skills_title")}
+            <span className="flex-1 h-px bg-slate-200 dark:bg-slate-800 ml-4" />
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Cloud */}
+            <motion.div
+              className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Cloud className="text-blue-500" size={24} />
+                <h3 className="font-semibold">{t("skills_cloud")}</h3>
+              </div>
+              <ul className="space-y-2">
+                {skills.cloud.map((skill, i) => (
+                  <li key={i} className="text-slate-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Observability */}
+            <motion.div
+              className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Activity className="text-green-500" size={24} />
+                <h3 className="font-semibold">{t("skills_observability")}</h3>
+              </div>
+              <ul className="space-y-2">
+                {skills.observability.map((skill, i) => (
+                  <li key={i} className="text-slate-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* CI/CD */}
+            <motion.div
+              className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <GitBranch className="text-orange-500" size={24} />
+                <h3 className="font-semibold">{t("skills_cicd")}</h3>
+              </div>
+              <ul className="space-y-2">
+                {skills.cicd.map((skill, i) => (
+                  <li key={i} className="text-slate-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Development */}
+            <motion.div
+              className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Code className="text-purple-500" size={24} />
+                <h3 className="font-semibold">{t("skills_dev")}</h3>
+              </div>
+              <ul className="space-y-2">
+                {skills.dev.map((skill, i) => (
+                  <li key={i} className="text-slate-600 dark:text-slate-400 text-sm flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experiencia" className="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.h2
+            className="text-3xl font-bold mb-12 flex items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-blue-600 font-mono text-xl">03.</span>
+            {t("exp_title")}
+            <span className="flex-1 h-px bg-slate-200 dark:bg-slate-800 ml-4" />
+          </motion.h2>
+
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <motion.div
                 key={index}
-                className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-700"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl group-hover:scale-110 transition-transform">
-                    {skill.icon}
-                  </div>
-                  <h3 className="font-bold text-lg">{skill.name}</h3>
+                <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full ring-4 ring-white dark:ring-slate-900 ${
+                  exp.current ? 'bg-blue-600' : 'bg-slate-400 dark:bg-slate-600'
+                }`} />
+
+                <div className="flex flex-wrap items-center gap-3 mb-2">
+                  <span className={`text-sm font-mono ${exp.current ? 'text-blue-600' : 'text-slate-500'}`}>
+                    {t(exp.date)}
+                  </span>
+                  {exp.current && (
+                    <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full">
+                      {t("exp_current")}
+                    </span>
+                  )}
                 </div>
-                <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-                  <div className="bg-blue-600 h-2 rounded-full" style={{ width: skill.level === 'Advanced' ? '90%' : '70%' }}></div>
-                </div>
+
+                <h3 className="text-xl font-bold mb-1">{t(exp.role)}</h3>
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">{t(exp.company)}</p>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t(exp.desc)}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experiencia" className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <motion.div 
-            className="flex items-center gap-4 mb-12"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <Server className="text-blue-600" size={32} />
-            <h2 className="text-3xl font-bold">{t("exp_title")}</h2>
-          </motion.div>
-          
-          <div className="space-y-12">
-            <motion.div 
-              className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-700"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-slate-900"></div>
-              <span className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2 block">{t("exp_date1")}</span>
-              <h3 className="font-bold text-2xl mb-1">{t("exp_role1")}</h3>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">{t("exp_desc1")}</p>
-              <div className="flex gap-2">
-                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded-full font-medium">Kubernetes</span>
-                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded-full font-medium">ArgoCD</span>
-                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded-full font-medium">Terraform</span>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-700"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-900"></div>
-              <span className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2 block">{t("exp_date2")}</span>
-              <h3 className="font-bold text-2xl mb-1">{t("exp_role2")}</h3>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">{t("exp_desc2")}</p>
-              <div className="flex gap-2">
-                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded-full font-medium">AWS</span>
-                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded-full font-medium">Python</span>
-                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded-full font-medium">Linux</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contacto" className="py-24 pb-40 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <motion.div 
-            className="flex flex-col items-center gap-4 mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600">
-               <Mail size={40} />
-            </div>
-            <h2 className="text-4xl font-bold">{t("contact_title")}</h2>
-          </motion.div>
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-xl mx-auto">
-            {t("contact_desc")}
-          </p>
-          
-          <motion.div 
-            className="flex flex-wrap justify-center gap-6"
+      <section id="contacto" className="py-24">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <a href="mailto:tuemail@ejemplo.com" className="flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
-              <Mail size={20} />
-              {t("contact_email")}
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-lg transition-all transform hover:-translate-y-1">
-              <Linkedin size={20} />
-              LinkedIn
-            </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 hover:shadow-lg transition-all transform hover:-translate-y-1">
-              <Github size={20} />
-              GitHub
-            </a>
+            <p className="text-blue-600 font-mono mb-4">04. {t("contact_title")}</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("contact_title")}</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-xl mx-auto">
+              {t("contact_desc")}
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="mailto:contacto@cristianalvis.com"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25"
+              >
+                <Mail size={20} />
+                {t("contact_email")}
+              </a>
+              <a
+                href="https://www.linkedin.com/in/cristian-david-alvis-ortiz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-slate-300 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 px-8 py-4 rounded-lg font-medium transition-all"
+              >
+                <Linkedin size={20} />
+                LinkedIn
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-sm bg-white dark:bg-slate-900 transition-colors duration-300">
-        <p>© {new Date().getFullYear()} [Tu Nombre]. {t("footer_text")}.</p>
+      <footer className="py-8 border-t border-slate-200 dark:border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
+            © {new Date().getFullYear()} Cristian Alvis. {t("footer_rights")}.
+          </p>
+          <p className="text-slate-400 dark:text-slate-500 text-xs mt-2">
+            {t("footer_text")}
+          </p>
+        </div>
       </footer>
     </div>
   );

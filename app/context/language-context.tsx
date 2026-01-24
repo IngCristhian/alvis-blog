@@ -12,31 +12,74 @@ interface LanguageContextType {
 
 const translations = {
   es: {
+    // Navigation
     nav_home: "Inicio",
     nav_about: "Sobre Mí",
     nav_skills: "Habilidades",
     nav_experience: "Experiencia",
     nav_contact: "Contacto",
     nav_blog: "Blog",
-    hero_role: "Ingeniero DevOps",
-    hero_desc: "Automatizando el futuro. Especialista en CI/CD, Infraestructura como Código y Nube.",
+
+    // Hero
+    hero_greeting: "Hola, soy",
+    hero_name: "Cristian Alvis",
+    hero_role: "DevOps Engineer | SRE",
+    hero_desc: "Ingeniero DevOps con 4+ años de experiencia en soluciones cloud-native, automatización de infraestructura y observabilidad. Especializado en AWS, Kubernetes y CI/CD en el sector financiero y tecnológico.",
     hero_cta_contact: "Contáctame",
-    hero_cta_projects: "Ver Proyectos",
+    hero_cta_cv: "Descargar CV",
+    hero_location: "Bogotá, Colombia",
+
+    // About
     about_title: "Sobre Mí",
-    about_desc1: "Soy un Ingeniero DevOps apasionado por la automatización y la eficiencia. Mi objetivo es cerrar la brecha entre el desarrollo y las operaciones, asegurando despliegues rápidos, seguros y escalables.",
-    about_desc2: "Con experiencia en entornos de nube y on-premise, me especializo en construir pipelines robustos y gestionar infraestructura de alta disponibilidad.",
-    skills_title: "Habilidades Técnicas",
+    about_desc1: "Ingeniero DevOps apasionado por la automatización y la eficiencia operacional. Mi enfoque es cerrar la brecha entre desarrollo y operaciones, garantizando despliegues rápidos, seguros y escalables.",
+    about_desc2: "Con experiencia en empresas del sector financiero como Bancolombia y Nequi, me especializo en arquitecturas cloud-native, orquestación de contenedores y sistemas de observabilidad de alto rendimiento.",
+    about_years: "4+ años",
+    about_years_label: "de experiencia",
+    about_projects: "20+",
+    about_projects_label: "proyectos",
+    about_certifications: "AWS",
+    about_certifications_label: "certificado",
+
+    // Skills
+    skills_title: "Stack Tecnológico",
+    skills_cloud: "Cloud & Infraestructura",
+    skills_observability: "Observabilidad",
+    skills_cicd: "CI/CD & Automatización",
+    skills_dev: "Desarrollo",
+
+    // Experience
     exp_title: "Experiencia Profesional",
-    exp_role1: "Ingeniero DevOps Senior",
-    exp_date1: "2023 - Presente",
-    exp_desc1: "Lideré la migración a Kubernetes, reduciendo el tiempo de despliegue en un 40%. Implementé GitOps con ArgoCD.",
-    exp_role2: "Ingeniero de Sistemas / Cloud",
-    exp_date2: "2021 - 2023",
-    exp_desc2: "Administración de infraestructura en AWS. Automatización de tareas repetitivas con Python y Bash.",
-    contact_title: "Contáctame",
-    contact_desc: "¿Listo para optimizar tu infraestructura? Hablemos.",
-    contact_email: "Enviar Correo",
-    footer_text: "Diseñado y construido con Next.js",
+    exp_current: "Actual",
+
+    exp_role1: "Ingeniero DevOps",
+    exp_company1: "EPAM NEORIS | Bancolombia",
+    exp_date1: "Feb 2025 - Actual",
+    exp_desc1: "Liderazgo en implementación de infraestructura cloud-native en AWS EKS con Kafka Strimzi. Diseño de stack de observabilidad completo (Grafana, Prometheus, Thanos). Automatización con AWS CloudFormation.",
+
+    exp_role2: "Ingeniero SRE",
+    exp_company2: "SETI S.A.S | Bancolombia - Nequi",
+    exp_date2: "Abr 2024 - Dic 2024",
+    exp_desc2: "Gestión de buenas prácticas en operaciones de TI. Garantía de fiabilidad, disponibilidad y rendimiento de sistemas críticos bancarios. Implementación de automatización y monitoreo.",
+
+    exp_role3: "DevOps Engineer",
+    exp_company3: "Accenture",
+    exp_date3: "Dic 2022 - Sep 2023",
+    exp_desc3: "Administración de servicios AWS y orquestación con Kubernetes. Diseño de flujos CI/CD e Infrastructure as Code con Terraform. Soluciones de monitoreo en producción.",
+
+    exp_role4: "Consultor DevOps",
+    exp_company4: "Contact & Business IT LTDA",
+    exp_date4: "Ene 2021 - Dic 2022",
+    exp_desc4: "Implementación de prácticas DevOps con Azure DevOps, Jenkins, Docker y Kubernetes. Diseño de pipelines CI/CD de alto rendimiento. Automatización con Ansible y scripting.",
+
+    // Contact
+    contact_title: "Contacto",
+    contact_desc: "¿Tienes un proyecto en mente o necesitas optimizar tu infraestructura? Hablemos.",
+    contact_email: "Enviar Email",
+
+    // Footer
+    footer_text: "Diseñado y desarrollado por Cristian Alvis",
+    footer_rights: "Todos los derechos reservados",
+
     // Blog
     blog_title: "Blog",
     blog_subtitle: "Artículos sobre DevOps, Cloud y desarrollo",
@@ -58,31 +101,74 @@ const translations = {
     blog_newsletter_error: "Hubo un error. Intenta de nuevo.",
   },
   en: {
+    // Navigation
     nav_home: "Home",
     nav_about: "About",
     nav_skills: "Skills",
     nav_experience: "Experience",
     nav_contact: "Contact",
     nav_blog: "Blog",
-    hero_role: "DevOps Engineer",
-    hero_desc: "Automating the future. Specialist in CI/CD, Infrastructure as Code, and Cloud Computing.",
+
+    // Hero
+    hero_greeting: "Hi, I'm",
+    hero_name: "Cristian Alvis",
+    hero_role: "DevOps Engineer | SRE",
+    hero_desc: "DevOps Engineer with 4+ years of experience in cloud-native solutions, infrastructure automation, and observability. Specialized in AWS, Kubernetes, and CI/CD in the financial and technology sector.",
     hero_cta_contact: "Contact Me",
-    hero_cta_projects: "View Projects",
+    hero_cta_cv: "Download CV",
+    hero_location: "Bogotá, Colombia",
+
+    // About
     about_title: "About Me",
-    about_desc1: "I am a DevOps Engineer passionate about automation and efficiency. My goal is to bridge the gap between development and operations, ensuring fast, secure, and scalable deployments.",
-    about_desc2: "With experience in cloud and on-premise environments, I specialize in building robust pipelines and managing high-availability infrastructure.",
-    skills_title: "Technical Skills",
+    about_desc1: "DevOps Engineer passionate about automation and operational efficiency. My focus is bridging the gap between development and operations, ensuring fast, secure, and scalable deployments.",
+    about_desc2: "With experience in financial sector companies like Bancolombia and Nequi, I specialize in cloud-native architectures, container orchestration, and high-performance observability systems.",
+    about_years: "4+ years",
+    about_years_label: "of experience",
+    about_projects: "20+",
+    about_projects_label: "projects",
+    about_certifications: "AWS",
+    about_certifications_label: "certified",
+
+    // Skills
+    skills_title: "Tech Stack",
+    skills_cloud: "Cloud & Infrastructure",
+    skills_observability: "Observability",
+    skills_cicd: "CI/CD & Automation",
+    skills_dev: "Development",
+
+    // Experience
     exp_title: "Professional Experience",
-    exp_role1: "Senior DevOps Engineer",
-    exp_date1: "2023 - Present",
-    exp_desc1: "Led migration to Kubernetes, reducing deployment time by 40%. Implemented GitOps with ArgoCD.",
-    exp_role2: "Systems / Cloud Engineer",
-    exp_date2: "2021 - 2023",
-    exp_desc2: "AWS Infrastructure administration. Automation of repetitive tasks using Python and Bash.",
-    contact_title: "Contact Me",
-    contact_desc: "Ready to optimize your infrastructure? Let's talk.",
+    exp_current: "Current",
+
+    exp_role1: "DevOps Engineer",
+    exp_company1: "EPAM NEORIS | Bancolombia",
+    exp_date1: "Feb 2025 - Current",
+    exp_desc1: "Leading cloud-native infrastructure implementation on AWS EKS with Kafka Strimzi. Designed complete observability stack (Grafana, Prometheus, Thanos). Automation with AWS CloudFormation.",
+
+    exp_role2: "SRE Engineer",
+    exp_company2: "SETI S.A.S | Bancolombia - Nequi",
+    exp_date2: "Apr 2024 - Dec 2024",
+    exp_desc2: "IT operations best practices management. Ensuring reliability, availability, and performance of critical banking systems. Automation and monitoring implementation.",
+
+    exp_role3: "DevOps Engineer",
+    exp_company3: "Accenture",
+    exp_date3: "Dec 2022 - Sep 2023",
+    exp_desc3: "AWS services administration and Kubernetes orchestration. CI/CD workflow design and Infrastructure as Code with Terraform. Production monitoring solutions.",
+
+    exp_role4: "DevOps Consultant",
+    exp_company4: "Contact & Business IT LTDA",
+    exp_date4: "Jan 2021 - Dec 2022",
+    exp_desc4: "DevOps practices implementation with Azure DevOps, Jenkins, Docker, and Kubernetes. High-performance CI/CD pipeline design. Automation with Ansible and scripting.",
+
+    // Contact
+    contact_title: "Contact",
+    contact_desc: "Have a project in mind or need to optimize your infrastructure? Let's talk.",
     contact_email: "Send Email",
-    footer_text: "Designed and built with Next.js",
+
+    // Footer
+    footer_text: "Designed and developed by Cristian Alvis",
+    footer_rights: "All rights reserved",
+
     // Blog
     blog_title: "Blog",
     blog_subtitle: "Articles about DevOps, Cloud, and development",
@@ -108,7 +194,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("es");
 
   const t = (key: string) => {
     // @ts-expect-error key access
