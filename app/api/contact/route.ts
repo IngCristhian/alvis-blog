@@ -21,8 +21,8 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Portfolio Contact <onboarding@resend.dev>',
-          to: 'kristhiiiann@gmail.com',
+          from: 'Portfolio <noreply@cristianalvis.com>',
+          to: 'contacto@cristianalvis.com',
           subject: `Nuevo mensaje de ${name}`,
           html: `
             <h2>Nuevo mensaje desde tu portfolio</h2>
