@@ -58,13 +58,13 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#contacto"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25"
+              <button
+                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
               >
                 {t("hero_cta_contact")}
                 <ChevronRight size={18} />
-              </a>
+              </button>
               <a
                 href="/cv.pdf"
                 className="inline-flex items-center gap-2 border border-slate-300 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 px-6 py-3 rounded-lg font-medium transition-all"
