@@ -4,9 +4,10 @@ import { useLanguage } from "@/app/context/language-context";
 import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
 import {
-  Mail, MapPin, Linkedin, Github, ExternalLink,
-  Cloud, Activity, GitBranch, Code, Download, ChevronRight
+  MapPin, Linkedin, Github, ExternalLink,
+  Cloud, Activity, GitBranch, Code, Download, ChevronRight, Mail
 } from "lucide-react";
+import ContactForm from "@/app/components/ContactForm";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -346,38 +347,61 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contacto" className="py-24">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-4xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-12"
           >
             <p className="text-blue-600 font-mono mb-4">04. {t("contact_title")}</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("contact_title")}</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-xl mx-auto">
+            <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto">
               {t("contact_desc")}
             </p>
+          </motion.div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="mailto:contacto@cristianalvis.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25"
-              >
-                <Mail size={20} />
-                {t("contact_email")}
-              </a>
-              <a
-                href="https://www.linkedin.com/in/cristian-david-alvis-ortiz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-slate-300 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 px-8 py-4 rounded-lg font-medium transition-all"
-              >
-                <Linkedin size={20} />
-                LinkedIn
-              </a>
-            </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <ContactForm />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="flex justify-center gap-4 mt-10"
+          >
+            <a
+              href="mailto:contacto@cristianalvis.com"
+              className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+              aria-label="Email"
+            >
+              <Mail size={22} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/cristian-david-alvis-ortiz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={22} />
+            </a>
+            <a
+              href="https://github.com/IngCristhian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"
+              aria-label="GitHub"
+            >
+              <Github size={22} />
+            </a>
           </motion.div>
         </div>
       </section>

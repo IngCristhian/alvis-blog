@@ -73,8 +73,19 @@ const translations = {
 
     // Contact
     contact_title: "Contacto",
-    contact_desc: "¿Tienes un proyecto en mente o necesitas optimizar tu infraestructura? Hablemos.",
-    contact_email: "Enviar Email",
+    contact_desc: "¿Tienes un proyecto en mente o necesitas optimizar tu infraestructura? Escríbeme.",
+    contact_name: "Nombre",
+    contact_name_placeholder: "Tu nombre",
+    contact_email_label: "Email",
+    contact_email_placeholder: "tu@email.com",
+    contact_message: "Mensaje",
+    contact_message_placeholder: "Cuéntame sobre tu proyecto o cómo puedo ayudarte...",
+    contact_send: "Enviar Mensaje",
+    contact_sending: "Enviando...",
+    contact_success_title: "¡Mensaje enviado!",
+    contact_success_desc: "Gracias por contactarme. Te responderé en un máximo de 24 horas.",
+    contact_error: "Error al enviar. Intenta de nuevo.",
+    contact_response_time: "Respuesta en máximo 24 horas",
 
     // Footer
     footer_text: "Diseñado y desarrollado por Cristian Alvis",
@@ -162,8 +173,19 @@ const translations = {
 
     // Contact
     contact_title: "Contact",
-    contact_desc: "Have a project in mind or need to optimize your infrastructure? Let's talk.",
-    contact_email: "Send Email",
+    contact_desc: "Have a project in mind or need to optimize your infrastructure? Write to me.",
+    contact_name: "Name",
+    contact_name_placeholder: "Your name",
+    contact_email_label: "Email",
+    contact_email_placeholder: "you@email.com",
+    contact_message: "Message",
+    contact_message_placeholder: "Tell me about your project or how I can help you...",
+    contact_send: "Send Message",
+    contact_sending: "Sending...",
+    contact_success_title: "Message sent!",
+    contact_success_desc: "Thanks for reaching out. I'll respond within 24 hours.",
+    contact_error: "Error sending. Please try again.",
+    contact_response_time: "Response within 24 hours",
 
     // Footer
     footer_text: "Designed and developed by Cristian Alvis",

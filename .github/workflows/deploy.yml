@@ -17,7 +17,7 @@ jobs:
         run: |
           cat > .env << EOF
           SITE_URL=${{ secrets.SITE_URL }}
-          BUTTONDOWN_API_KEY=${{ secrets.BUTTONDOWN_API_KEY }}
+          RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
           NEXT_PUBLIC_GISCUS_REPO=${{ secrets.NEXT_PUBLIC_GISCUS_REPO }}
           NEXT_PUBLIC_GISCUS_REPO_ID=${{ secrets.NEXT_PUBLIC_GISCUS_REPO_ID }}
           NEXT_PUBLIC_GISCUS_CATEGORY_ID=${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}

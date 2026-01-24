@@ -15,8 +15,6 @@ services:
     environment:
       - NODE_ENV=production
       - SITE_URL=${SITE_URL:-https://alvis.blog}
-      # Newsletter API (runtime - elige uno)
-      - BUTTONDOWN_API_KEY=${BUTTONDOWN_API_KEY:-}
+      # APIs (runtime)
       - RESEND_API_KEY=${RESEND_API_KEY:-}
-      - RESEND_AUDIENCE_ID=${RESEND_AUDIENCE_ID:-}
     restart: always
